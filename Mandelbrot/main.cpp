@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
 		800, 600,
 		false);
 
-	while (frame->IsOpen()) {
+	while(frame->IsOpen()) {
 		frame->HandleEvents();
 		frame->Update();
 		frame->Render();

@@ -1,11 +1,11 @@
 #pragma once
 
 #include "SDL.h"
+#include "CoordinateSystem.h"
 #include <iostream>
 
 struct Dimension {
-	int width;
-	int height;
+	int width, height;
 };
 
 class Frame {
@@ -25,4 +25,5 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	Dimension dimension;
+	CoordinateSystem* coordinateSystem;
 };
