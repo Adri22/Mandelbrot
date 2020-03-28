@@ -3,7 +3,7 @@
 Frame::Frame(const char* title, int x, int y, int width, int height, bool fullscreen) {
 	dimension = {width, height};
 
-	if(SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+	if(!SDL_Init(SDL_INIT_EVERYTHING)) {
 		window = SDL_CreateWindow(
 			title,
 			x, y,
@@ -20,6 +20,7 @@ Frame::Frame(const char* title, int x, int y, int width, int height, bool fullsc
 Frame::~Frame() {
 	delete window;
 	delete renderer;
+	delete coordinateSystem;
 }
 
 void Frame::HandleEvents() {
@@ -40,7 +41,7 @@ void Frame::HandleEvents() {
 	}
 }
 
-void Frame::Update() {}
+void Frame::Update() {} // stub
 
 void Frame::Render() {
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);

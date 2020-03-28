@@ -6,7 +6,10 @@ CoordinateSystem::CoordinateSystem(int frameWidth, int frameHeight) {
 	yAxis = new Axis(coordinateOrigin.x, 0, coordinateOrigin.x, frameHeight);
 }
 
-CoordinateSystem::~CoordinateSystem() {}
+CoordinateSystem::~CoordinateSystem() {
+	delete xAxis;
+	delete yAxis;
+}
 
 void CoordinateSystem::Draw(SDL_Renderer* renderer) {
 	DrawAxis(renderer);

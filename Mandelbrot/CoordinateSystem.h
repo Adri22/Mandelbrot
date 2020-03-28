@@ -1,11 +1,8 @@
 #pragma once
 
 #include "SDL.h"
+#include "MandelbrotSet.h"
 #include <iostream>
-
-struct Point {
-	int x, y;
-};
 
 struct Axis {
 
