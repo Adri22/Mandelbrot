@@ -12,6 +12,7 @@ Frame::Frame(const char* title, int x, int y, int width, int height, bool fullsc
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		isRunning = true;
 		coordinateSystem = new CoordinateSystem(dimension.width, dimension.height);
+		mandelbrotset = new MandelbrotSet(coordinateSystem->GetOrigin());
 	} else {
 		isRunning = false;
 	}
@@ -21,6 +22,7 @@ Frame::~Frame() {
 	delete window;
 	delete renderer;
 	delete coordinateSystem;
+	delete mandelbrotset;
 }
 
 void Frame::HandleEvents() {
@@ -45,8 +47,9 @@ void Frame::Update() {} // stub
 
 void Frame::Render() {
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(renderer); // move into Draw()-Functions?
 	coordinateSystem->Draw(renderer);
+	mandelbrotset->Draw(renderer);
 	SDL_RenderPresent(renderer);
 }
 

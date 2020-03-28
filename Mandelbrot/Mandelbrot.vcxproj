@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="CoordinateSystem.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="Geometry.h" />
     <ClInclude Include="MandelbrotElement.h" />
     <ClInclude Include="MandelbrotSet.h" />
   </ItemGroup>

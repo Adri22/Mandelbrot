@@ -2,11 +2,9 @@
 
 #include "SDL.h"
 #include "CoordinateSystem.h"
+#include "MandelbrotSet.h"
+#include "Geometry.h"
 #include <iostream>
-
-struct Dimension {
-	int width, height;
-};
 
 class Frame {
 
@@ -26,4 +24,5 @@ private:
 	SDL_Renderer* renderer;
 	Dimension dimension;
 	CoordinateSystem* coordinateSystem;
+	MandelbrotSet* mandelbrotset;
 };

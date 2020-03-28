@@ -2,8 +2,8 @@
 
 CoordinateSystem::CoordinateSystem(int frameWidth, int frameHeight) {
 	coordinateOrigin = {frameWidth / 2, frameHeight / 2};
-	xAxis = new Axis(0, coordinateOrigin.y, frameWidth, coordinateOrigin.y);
-	yAxis = new Axis(coordinateOrigin.x, 0, coordinateOrigin.x, frameHeight);
+	xAxis = new Line(0, coordinateOrigin.y, frameWidth, coordinateOrigin.y);
+	yAxis = new Line(coordinateOrigin.x, 0, coordinateOrigin.x, frameHeight);
 }
 
 CoordinateSystem::~CoordinateSystem() {
@@ -13,6 +13,10 @@ CoordinateSystem::~CoordinateSystem() {
 
 void CoordinateSystem::Draw(SDL_Renderer* renderer) {
 	DrawAxis(renderer);
+}
+
+Point CoordinateSystem::GetOrigin() {
+	return coordinateOrigin;
 }
 
 void CoordinateSystem::DrawAxis(SDL_Renderer* renderer) {
