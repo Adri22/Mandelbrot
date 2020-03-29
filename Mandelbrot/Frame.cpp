@@ -9,9 +9,9 @@ Frame::Frame(const char* title, int x, int y, int width, int height, bool fullsc
 			x, y,
 			dimension.width, dimension.height,
 			fullscreen ? SDL_WINDOW_FULLSCREEN : 0);
-		renderer = SDL_CreateRenderer(window, -1, 0);
 		isRunning = true;
-		coordinateSystem = new CoordinateSystem(dimension.width, dimension.height);
+		renderHandler = new RenderHandler(window);
+		coordinateSystem = new CoordinateSystem(dimension);
 		mandelbrotset = new MandelbrotSet(coordinateSystem->GetOrigin());
 	} else {
 		isRunning = false;
@@ -20,7 +20,7 @@ Frame::Frame(const char* title, int x, int y, int width, int height, bool fullsc
 
 Frame::~Frame() {
 	delete window;
-	delete renderer;
+	delete renderHandler;
 	delete coordinateSystem;
 	delete mandelbrotset;
 }
@@ -33,6 +33,7 @@ void Frame::HandleEvents() {
 
 	switch(event.type) {
 		case SDL_QUIT:
+			isRunning = false;
 		case SDL_KEYDOWN:
 			if(!(event.key.keysym.scancode == SDL_GetScancodeFromKey(SDLK_ESCAPE))) {
 				break;
@@ -43,18 +44,12 @@ void Frame::HandleEvents() {
 	}
 }
 
-void Frame::Update() {} // stub
-
-void Frame::Render() {
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderClear(renderer); // move into Draw()-Functions?
-	coordinateSystem->Draw(renderer);
-	mandelbrotset->Draw(renderer);
-	SDL_RenderPresent(renderer);
+void Frame::Update() {
+	renderHandler->StillRunning(isRunning);
+	// update stuff here
 }
 
 void Frame::Quit() {
 	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
 }

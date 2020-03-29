@@ -146,6 +146,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MandelbrotElement.cpp" />
     <ClCompile Include="MandelbrotSet.cpp" />
+    <ClCompile Include="RenderHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CoordinateSystem.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="MandelbrotElement.h" />
     <ClInclude Include="MandelbrotSet.h" />
+    <ClInclude Include="RenderHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

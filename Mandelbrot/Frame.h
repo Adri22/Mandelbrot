@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDL.h"
+#include "RenderHandler.h"
 #include "CoordinateSystem.h"
 #include "MandelbrotSet.h"
 #include "Geometry.h"
@@ -13,7 +14,6 @@ public:
 	~Frame();
 	void HandleEvents();
 	void Update();
-	void Render();
 	void Quit();
 	bool IsOpen() { return isRunning; }
 	Dimension getDimension() { return dimension; };
@@ -21,7 +21,7 @@ public:
 private:
 	bool isRunning;
 	SDL_Window* window;
-	SDL_Renderer* renderer;
+	RenderHandler* renderHandler;
 	Dimension dimension;
 	CoordinateSystem* coordinateSystem;
 	MandelbrotSet* mandelbrotset;

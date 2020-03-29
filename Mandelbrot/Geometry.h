@@ -5,13 +5,13 @@ struct Dimension {
 };
 
 struct Point {
-	int x, y;
+	float x, y;
 };
 
 struct Line {
 
 public:
-	Line(int xStart, int yStart, int xEnd, int yEnd) {
+	Line(float xStart, float yStart, float xEnd, float yEnd) {
 		start = {xStart, yStart};
 		end = {xEnd, yEnd};
 	}

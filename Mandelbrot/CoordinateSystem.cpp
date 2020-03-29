@@ -1,9 +1,9 @@
 #include "CoordinateSystem.h"
 
-CoordinateSystem::CoordinateSystem(int frameWidth, int frameHeight) {
-	coordinateOrigin = {frameWidth / 2, frameHeight / 2};
-	xAxis = new Line(0, coordinateOrigin.y, frameWidth, coordinateOrigin.y);
-	yAxis = new Line(coordinateOrigin.x, 0, coordinateOrigin.x, frameHeight);
+CoordinateSystem::CoordinateSystem(Dimension d) {
+	coordinateOrigin = {(float)d.width / 2, (float)d.height / 2};
+	xAxis = new Line(0, coordinateOrigin.y, d.width, coordinateOrigin.y);
+	yAxis = new Line(coordinateOrigin.x, 0, coordinateOrigin.x, d.height);
 }
 
 CoordinateSystem::~CoordinateSystem() {

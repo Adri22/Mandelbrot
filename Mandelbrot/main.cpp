@@ -12,7 +12,6 @@ int main(int argc, char* argv[]) {
 	while(frame->IsOpen()) {
 		frame->HandleEvents();
 		frame->Update();
-		frame->Render();
 	}
 
 	frame->Quit();

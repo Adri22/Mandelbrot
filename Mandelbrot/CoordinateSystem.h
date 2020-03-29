@@ -7,7 +7,7 @@
 class CoordinateSystem {
 
 public:
-	CoordinateSystem(int frameWidth, int frameHeight);
+	CoordinateSystem(Dimension d);
 	~CoordinateSystem();
 	void Draw(SDL_Renderer* renderer);
 	Point GetOrigin();
