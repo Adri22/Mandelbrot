@@ -1,8 +1,8 @@
 #include "RenderHandler.h"
 
-RenderHandler::RenderHandler(SDL_Window* window) {
-	running = false;
-	RenderHandler::window = window;
+RenderHandler::RenderHandler(Frame* f) {
+	frame = f;
+	window = frame->getWindow();
 	renderer = nullptr;
 	glContext = SDL_GL_GetCurrentContext();
 	SDL_GL_MakeCurrent(window, nullptr);
@@ -16,28 +16,13 @@ RenderHandler::~RenderHandler() {
 	SDL_DestroyRenderer(renderer);
 }
 
-/*
-template<typename Function>
-void Test(Function function) {
-	function();
-}
-*/
-
 void RenderHandler::RenderProcess() {
 	SDL_GL_MakeCurrent(window, glContext);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-	while(running) {
+	while(frame->IsOpen()) {
 		if(renderer != nullptr) {
-			Render();
+			frame->Render(renderer);
 		}
 	}
-}
-
-void RenderHandler::Render() {
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderClear(renderer); // move into Draw()-Functions?
-	// coordinateSystem->Draw(renderer);
-	// mandelbrotset->Draw(renderer);
-	SDL_RenderPresent(renderer);
 }

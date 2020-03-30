@@ -1,21 +1,20 @@
 #pragma once
 
 #include "SDL.h"
+#include "Frame.h"
 #include <iostream>
 #include <thread>
 
 class RenderHandler {
 
 public:
-	RenderHandler(SDL_Window* window);
+	RenderHandler(Frame* f);
 	~RenderHandler();
-	void StillRunning(bool running) { RenderHandler::running = running; }
 
 private:
+	Frame* frame;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	SDL_GLContext glContext;
-	bool running;
 	void RenderProcess();
-	void Render();
 };

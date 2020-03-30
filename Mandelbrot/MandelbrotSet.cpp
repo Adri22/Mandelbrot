@@ -3,11 +3,11 @@
 MandelbrotSet::MandelbrotSet(Point origin) {
 	MandelbrotSet::origin = origin;
 	elements = new std::list<MandelbrotElement>;
-	accuracy = 0.001;
+	accuracy = 0.01;
 
-	for(float x = -1; x <= 1; x += accuracy) {
-		for(float y = -1; y <= 1; y += accuracy) {
-			elements->push_front(*new MandelbrotElement({x, y}));
+	for(double x = -2; x <= 2; x += accuracy) { // make bounds dynamic?
+		for(double y = -2; y <= 2; y += accuracy) {
+			elements->push_front(*new MandelbrotElement({x, y})); // bad_alloc - change to x64 runtime configuration
 		}
 	}
 }

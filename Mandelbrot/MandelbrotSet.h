@@ -17,6 +17,6 @@ public:
 private:
 	Point origin;
 	std::list<MandelbrotElement>* elements;
-	float accuracy;
+	double accuracy;
 	void ClearList();
 };

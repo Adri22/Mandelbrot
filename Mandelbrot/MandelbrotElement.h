@@ -2,8 +2,11 @@
 
 #include "SDL.h"
 #include "Geometry.h"
+#include <iostream>
 #include <complex>
 #include <cmath>
+
+using namespace std::complex_literals;
 
 struct Color {
 	int r, g, b;
@@ -20,7 +23,9 @@ public:
 private:
 	Point coordinate;
 	int iterations;
-	double iterateValue;
+	std::complex<double> iterateValue;
+	std::complex<double> c;
 	Color color;
-	void Iterate(double value);
+	void Iterate(std::complex<double> value);
+	void SetColor();
 };
