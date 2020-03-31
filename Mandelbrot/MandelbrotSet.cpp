@@ -3,7 +3,7 @@
 MandelbrotSet::MandelbrotSet(Point origin) {
 	MandelbrotSet::origin = origin;
 	elements = new std::list<MandelbrotElement>;
-	accuracy = 0.01;
+	accuracy = 0.01; // 0.001 max - otherwise not so funny for your CPU/RAM 
 
 	for(double x = -2; x <= 2; x += accuracy) { // make bounds dynamic?
 		for(double y = -2; y <= 2; y += accuracy) {
