@@ -10,6 +10,9 @@ using namespace std::complex_literals;
 
 struct Color {
 	int r, g, b;
+	enum colorscheme { // TODO
+		RED, GREEN, BLUE
+	};
 };
 
 class MandelbrotElement {
@@ -23,6 +26,7 @@ public:
 private:
 	Point coordinate;
 	int iterations;
+	int const maxIterations = 1000;
 	std::complex<double> iterateValue;
 	std::complex<double> c;
 	Color color;
