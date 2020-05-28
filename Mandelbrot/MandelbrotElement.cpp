@@ -43,6 +43,6 @@ void MandelbrotElement::SetColor() {
 		int brightness =
 			256. * log2(1.75 + iterations - log2(log2(std::abs(iterateValue)))) /
 			log2(double(maxIterations));
-		color = {brightness, brightness, 255};
+		color = {brightness, brightness, 255}; // test / fixed blue - should be dynamic in some way
 	}
 }

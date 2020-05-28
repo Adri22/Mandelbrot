@@ -29,7 +29,7 @@ void Frame::HandleEvents() {
 	SDL_PollEvent(&event);
 	// std::cout << "event type: " << event.type << std::endl;
 
-	switch(event.type) {
+	switch(event.type) { // add zoom-functionality
 		case SDL_QUIT:
 			isRunning = false;
 		case SDL_KEYDOWN:
@@ -44,7 +44,7 @@ void Frame::HandleEvents() {
 
 void Frame::Update() {} // update stuff here 
 
-void Frame::Render(SDL_Renderer* renderer) {
+void Frame::Render(SDL_Renderer* renderer) { // change somehow: only render after update?
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_RenderClear(renderer); // move into Draw()-Functions?
 	coordinateSystem->Draw(renderer);

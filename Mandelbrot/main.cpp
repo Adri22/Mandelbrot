@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 	frame = new Frame(
 		"Mandelbrot",
 		SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		800, 600,
+		800, 600, // make window-size changeable?
 		false);
 
 	renderHandler = new RenderHandler(frame);

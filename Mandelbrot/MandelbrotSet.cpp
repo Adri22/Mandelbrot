@@ -7,7 +7,7 @@ MandelbrotSet::MandelbrotSet(Point origin) {
 
 	for(double x = -2; x <= 2; x += accuracy) { // make bounds dynamic?
 		for(double y = -2; y <= 2; y += accuracy) {
-			elements->push_front(*new MandelbrotElement({x, y})); // bad_alloc - change to x64 runtime configuration
+			elements->push_front(*new MandelbrotElement({x, y}));
 		}
 	}
 }
